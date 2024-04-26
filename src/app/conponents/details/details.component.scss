@@ -1,0 +1,37 @@
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .box {
+    width: 200px;
+    border: 2px solid darkcyan;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+  }
+h2{
+    text-align: center;
+    color: white;
+    display: inline-block;
+    background-color: darkcyan;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+p{
+    color: gray;
+}
+p, strong{
+    font-size: 150%;
+}
+button{
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}

@@ -1,0 +1,23 @@
+<div *ngIf="canDisplay">
+    <div class="container">
+        <h2>{{country.country}}</h2>
+    </div>
+    <div class="container">
+        <div class="box">
+            <p>Number of entries</p>
+            <strong>{{country.participations.length}}</strong>
+        </div>
+        <div class="box">
+            <p>Total number medals</p>
+            <strong>{{totalMedals}}</strong>
+        </div>
+        <div class="box">
+            <p>Total number of athletes</p>
+            <strong>{{totalAthletes}}</strong>
+        </div>
+    </div>
+    <canvasjs-chart [options]="chartOptions" [styles]="{width: '100%', height:'360px'}"></canvasjs-chart>
+</div>
+<div class="container">
+    <button (click)="back()">Back</button>
+</div>
