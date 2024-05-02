@@ -11,11 +11,11 @@ import { OlympicCountry } from '../models/Olympic';
 export class OlympicService {
 
   private olympicUrl = './assets/mock/olympic.json';
-  //private olympicUrl = '';
   private olympics$ = new BehaviorSubject<OlympicCountry[]>([]);
   constructor(private http: HttpClient) {}
 
-  loadInitialData() {
+  //Load countries data
+  loadInitialData(): Observable<OlympicCountry[]>{
     return this.http.get<OlympicCountry[]>(this.olympicUrl).pipe(
         tap((value) => this.olympics$.next(value)),
         catchError((error) => {
@@ -27,15 +27,10 @@ export class OlympicService {
     );
   }
 
-
-  getOlympics() {
+  //Get coutnrie data
+  getOlympics():Observable<OlympicCountry[]> {
     return this.olympics$.asObservable();
   }
 
-  getCountryById(id: number): Observable<OlympicCountry | undefined>{
-    return this.olympics$.pipe(
-      map(olympics => olympics.find(country => country.id === id))
-    );
-  }
 }
 

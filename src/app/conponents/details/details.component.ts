@@ -28,7 +28,7 @@ export class DetailsComponent implements OnInit, OnDestroy {
   }
 
   //Get country informations
-  getCountryInfos(countryId: string) {
+  getCountryInfos(countryId: string): void {
 
     this.olympicService.loadInitialData().pipe(takeUntil(this.destroy$)).subscribe(countries => {
       this.country = countries.find(c =>c.id === parseInt(countryId,0)) as OlympicCountry;
@@ -39,7 +39,6 @@ export class DetailsComponent implements OnInit, OnDestroy {
       this.prepareMedalData(this.country.participations);
       this.updateChartOptions();
       this.fillLabels();
-      //this.canDisplay = true;
     });
     
   }
@@ -90,7 +89,7 @@ export class DetailsComponent implements OnInit, OnDestroy {
   };
 
   // Prepare medal data from participation data
-  prepareMedalData(participations: Participation[]) {
+  prepareMedalData(participations: Participation[]): void  {
 
     //Put data in map
     participations.forEach(participation => {
@@ -100,7 +99,7 @@ export class DetailsComponent implements OnInit, OnDestroy {
   }
 
   //update chart data
-  updateChartOptions() {
+  updateChartOptions(): void  {
     this.chartOptions.data = [{
 			type: "line",
 			xValueFormatString: "YYYY",
@@ -112,7 +111,7 @@ export class DetailsComponent implements OnInit, OnDestroy {
   }
 
   //Put values in labels
-  fillLabels() {
+  fillLabels(): void  {
     this.country.participations.forEach(participation => {
       this.totalAthletes += participation.athleteCount;
       this.totalMedals += participation.medalsCount;
@@ -120,7 +119,7 @@ export class DetailsComponent implements OnInit, OnDestroy {
   }
 
   //Go back to main page
-  back() {
+  back(): void  {
     this.router.navigate(['']);
   }
 
